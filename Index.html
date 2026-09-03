@@ -1,0 +1,1000 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Robótica PRO — Curso completo de robótica do zero ao avançado.">
+  <title>Robótica PRO | Curso Completo de Robótica</title>
+
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      font-family: Arial, Helvetica, sans-serif;
+      background: #07111f;
+      color: #f5f7fa;
+      line-height: 1.6;
+    }
+
+    a {
+      text-decoration: none;
+      color: inherit;
+    }
+
+    .container {
+      width: min(1150px, 92%);
+      margin: auto;
+    }
+
+    /* HEADER */
+
+    header {
+      position: sticky;
+      top: 0;
+      z-index: 1000;
+      background: rgba(7, 17, 31, 0.95);
+      border-bottom: 1px solid #1c3148;
+      backdrop-filter: blur(10px);
+    }
+
+    .nav {
+      min-height: 72px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 20px;
+    }
+
+    .logo {
+      font-size: 23px;
+      font-weight: 900;
+      color: #4dd8ff;
+    }
+
+    .logo span {
+      color: #fff;
+    }
+
+    nav {
+      display: flex;
+      gap: 22px;
+    }
+
+    nav a {
+      color: #c7d3df;
+      font-size: 14px;
+      font-weight: 600;
+    }
+
+    nav a:hover {
+      color: #4dd8ff;
+    }
+
+    /* HERO */
+
+    .hero {
+      padding: 100px 0 80px;
+      background:
+        radial-gradient(circle at 80% 20%, rgba(0, 184, 255, .18), transparent 30%),
+        radial-gradient(circle at 10% 30%, rgba(70, 90, 255, .15), transparent 28%);
+    }
+
+    .hero-grid {
+      display: grid;
+      grid-template-columns: 1.15fr .85fr;
+      gap: 55px;
+      align-items: center;
+    }
+
+    .badge {
+      display: inline-block;
+      padding: 8px 14px;
+      border: 1px solid #24506c;
+      border-radius: 30px;
+      color: #67dcff;
+      background: #0c1e2d;
+      font-size: 13px;
+      font-weight: bold;
+      margin-bottom: 20px;
+    }
+
+    h1 {
+      font-size: clamp(40px, 6vw, 72px);
+      line-height: 1.05;
+      margin-bottom: 22px;
+    }
+
+    h1 span {
+      color: #4dd8ff;
+    }
+
+    .hero p {
+      color: #aebdca;
+      font-size: 18px;
+      max-width: 680px;
+      margin-bottom: 30px;
+    }
+
+    .buttons {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 14px;
+    }
+
+    .btn {
+      display: inline-block;
+      padding: 15px 24px;
+      border-radius: 10px;
+      font-weight: 800;
+      transition: .2s;
+      cursor: pointer;
+    }
+
+    .btn-primary {
+      background: #19bde8;
+      color: #03101a;
+    }
+
+    .btn-primary:hover {
+      transform: translateY(-2px);
+      background: #4dd8ff;
+    }
+
+    .btn-secondary {
+      border: 1px solid #31506a;
+      color: white;
+      background: #0c1a29;
+    }
+
+    .btn-secondary:hover {
+      border-color: #4dd8ff;
+    }
+
+    .robot-card {
+      min-height: 350px;
+      border: 1px solid #1f4059;
+      border-radius: 24px;
+      background: linear-gradient(145deg, #0e2234, #07131f);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      box-shadow: 0 20px 70px rgba(0,0,0,.3);
+    }
+
+    .robot {
+      font-size: 150px;
+      filter: drop-shadow(0 0 25px rgba(77,216,255,.35));
+    }
+
+    /* SECTIONS */
+
+    section {
+      padding: 80px 0;
+    }
+
+    .section-title {
+      text-align: center;
+      margin-bottom: 45px;
+    }
+
+    .section-title h2 {
+      font-size: clamp(30px, 5vw, 44px);
+      margin-bottom: 10px;
+    }
+
+    .section-title p {
+      color: #98a9b8;
+    }
+
+    /* CARDS */
+
+    .features {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 18px;
+    }
+
+    .feature {
+      padding: 25px;
+      background: #0b1a29;
+      border: 1px solid #19334a;
+      border-radius: 15px;
+    }
+
+    .feature-icon {
+      font-size: 30px;
+      margin-bottom: 10px;
+    }
+
+    .feature h3 {
+      margin-bottom: 8px;
+    }
+
+    .feature p {
+      color: #9eafbe;
+      font-size: 14px;
+    }
+
+    /* MODULES */
+
+    .modules {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 18px;
+    }
+
+    .module {
+      background: #0b1927;
+      border: 1px solid #1c354b;
+      border-radius: 16px;
+      padding: 23px;
+      transition: .2s;
+    }
+
+    .module:hover {
+      transform: translateY(-4px);
+      border-color: #35c9ef;
+    }
+
+    .module-number {
+      color: #4dd8ff;
+      font-weight: 900;
+      font-size: 13px;
+      margin-bottom: 7px;
+    }
+
+    .module h3 {
+      margin-bottom: 10px;
+    }
+
+    .module ul {
+      list-style: none;
+      color: #a7b6c4;
+      font-size: 14px;
+    }
+
+    .module li {
+      padding: 4px 0;
+    }
+
+    .module li::before {
+      content: "✓";
+      color: #4dd8ff;
+      margin-right: 8px;
+    }
+
+    /* PROJECTS */
+
+    .projects {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 20px;
+    }
+
+    .project {
+      background: #0c1d2c;
+      border: 1px solid #1b3a51;
+      border-radius: 18px;
+      padding: 30px;
+    }
+
+    .project .icon {
+      font-size: 42px;
+      margin-bottom: 15px;
+    }
+
+    .project p {
+      color: #9eafbe;
+      margin-top: 8px;
+    }
+
+    /* PRICING */
+
+    #planos {
+      background: #06101c;
+    }
+
+    .pricing {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 20px;
+      align-items: stretch;
+    }
+
+    .price-card {
+      background: #0c1c2b;
+      border: 1px solid #214057;
+      border-radius: 20px;
+      padding: 32px 25px;
+      position: relative;
+    }
+
+    .price-card.featured {
+      border: 2px solid #32cbed;
+      transform: scale(1.025);
+    }
+
+    .popular {
+      position: absolute;
+      top: -14px;
+      left: 50%;
+      transform: translateX(-50%);
+      background: #20c4ec;
+      color: #031019;
+      padding: 6px 14px;
+      border-radius: 20px;
+      font-size: 12px;
+      font-weight: 900;
+      white-space: nowrap;
+    }
+
+    .price-card h3 {
+      font-size: 24px;
+    }
+
+    .price {
+      font-size: 42px;
+      font-weight: 900;
+      margin: 15px 0;
+      color: #4dd8ff;
+    }
+
+    .price-card ul {
+      list-style: none;
+      margin: 20px 0 28px;
+      color: #b2c0cc;
+    }
+
+    .price-card li {
+      padding: 7px 0;
+    }
+
+    .price-card li::before {
+      content: "✓";
+      color: #4dd8ff;
+      margin-right: 8px;
+      font-weight: bold;
+    }
+
+    .buy {
+      display: block;
+      text-align: center;
+      width: 100%;
+    }
+
+    /* FAQ */
+
+    .faq {
+      max-width: 850px;
+      margin: auto;
+    }
+
+    details {
+      background: #0b1927;
+      border: 1px solid #1d374d;
+      border-radius: 12px;
+      margin-bottom: 12px;
+      padding: 18px 20px;
+    }
+
+    summary {
+      cursor: pointer;
+      font-weight: bold;
+    }
+
+    details p {
+      color: #aab8c4;
+      padding-top: 12px;
+    }
+
+    /* CTA */
+
+    .cta {
+      text-align: center;
+      padding: 70px 20px;
+      border: 1px solid #1e4259;
+      border-radius: 24px;
+      background: linear-gradient(145deg, #0c2234, #081521);
+    }
+
+    .cta h2 {
+      font-size: 38px;
+      margin-bottom: 15px;
+    }
+
+    .cta p {
+      color: #a6b5c1;
+      margin-bottom: 25px;
+    }
+
+    /* FOOTER */
+
+    footer {
+      border-top: 1px solid #193044;
+      padding: 35px 0;
+      color: #81919f;
+      text-align: center;
+      font-size: 13px;
+    }
+
+    /* RESPONSIVE */
+
+    @media (max-width: 900px) {
+      .hero-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .features {
+        grid-template-columns: repeat(2, 1fr);
+      }
+
+      .modules,
+      .projects,
+      .pricing {
+        grid-template-columns: 1fr 1fr;
+      }
+
+      .price-card.featured {
+        transform: none;
+      }
+
+      nav {
+        display: none;
+      }
+    }
+
+    @media (max-width: 600px) {
+      section {
+        padding: 60px 0;
+      }
+
+      .hero {
+        padding: 70px 0 55px;
+      }
+
+      .features,
+      .modules,
+      .projects,
+      .pricing {
+        grid-template-columns: 1fr;
+      }
+
+      .robot-card {
+        min-height: 250px;
+      }
+
+      .robot {
+        font-size: 100px;
+      }
+
+      .cta h2 {
+        font-size: 30px;
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+<header>
+  <div class="container nav">
+    <a href="#" class="logo">🤖 ROBÓTICA<span> PRO</span></a>
+
+    <nav>
+      <a href="#curso">Curso</a>
+      <a href="#modulos">Módulos</a>
+      <a href="#projetos">Projetos</a>
+      <a href="#planos">Planos</a>
+      <a href="#faq">FAQ</a>
+    </nav>
+
+    <a href="#planos" class="btn btn-primary">
+      Quero começar
+    </a>
+  </div>
+</header>
+
+<main>
+
+  <!-- HERO -->
+
+  <section class="hero">
+    <div class="container hero-grid">
+
+      <div>
+        <div class="badge">CURSO COMPLETO • DO ZERO AO AVANÇADO</div>
+
+        <h1>
+          Aprenda <span>Robótica</span>
+          na prática.
+        </h1>
+
+        <p>
+          Aprenda eletrônica, Arduino, programação, sensores,
+          motores, automação, IoT e construção de robôs através
+          de projetos práticos.
+        </p>
+
+        <div class="buttons">
+          <a href="#planos" class="btn btn-primary">
+            🚀 Quero entrar no curso
+          </a>
+
+          <a href="#modulos" class="btn btn-secondary">
+            Ver conteúdo
+          </a>
+        </div>
+      </div>
+
+      <div class="robot-card">
+        <div class="robot">🤖</div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- BENEFÍCIOS -->
+
+  <section id="curso">
+    <div class="container">
+
+      <div class="section-title">
+        <h2>O que você vai aprender</h2>
+        <p>Uma formação organizada para levar você do básico aos projetos avançados.</p>
+      </div>
+
+      <div class="features">
+
+        <div class="feature">
+          <div class="feature-icon">⚡</div>
+          <h3>Eletrônica</h3>
+          <p>Aprenda os principais componentes e fundamentos dos circuitos.</p>
+        </div>
+
+        <div class="feature">
+          <div class="feature-icon">💻</div>
+          <h3>Programação</h3>
+          <p>Aprenda a programar microcontroladores e sistemas robóticos.</p>
+        </div>
+
+        <div class="feature">
+          <div class="feature-icon">🔧</div>
+          <h3>Projetos</h3>
+          <p>Construa robôs e sistemas automatizados na prática.</p>
+        </div>
+
+        <div class="feature">
+          <div class="feature-icon">🧠</div>
+          <h3>Robótica inteligente</h3>
+          <p>Conheça IA, IoT e conceitos de autonomia em robôs.</p>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- MÓDULOS -->
+
+  <section id="modulos">
+    <div class="container">
+
+      <div class="section-title">
+        <h2>15 módulos completos</h2>
+        <p>45 aulas organizadas em uma trilha progressiva.</p>
+      </div>
+
+      <div class="modules">
+
+        <div class="module">
+          <div class="module-number">MÓDULO 01</div>
+          <h3>Introdução à Robótica</h3>
+          <ul>
+            <li>O que é robótica</li>
+            <li>Tipos de robôs</li>
+            <li>Componentes de um robô</li>
+          </ul>
+        </div>
+
+        <div class="module">
+          <div class="module-number">MÓDULO 02</div>
+          <h3>Eletrônica Básica</h3>
+          <ul>
+            <li>Tensão e corrente</li>
+            <li>Resistores e LEDs</li>
+            <li>Protoboard</li>
+          </ul>
+        </div>
+
+        <div class="module">
+          <div class="module-number">MÓDULO 03</div>
+          <h3>Arduino</h3>
+          <ul>
+            <li>Conhecendo Arduino</li>
+            <li>Configuração</li>
+            <li>Primeiro programa</li>
+          </ul>
+        </div>
+
+        <div class="module">
+          <div class="module-number">MÓDULO 04</div>
+          <h3>Programação</h3>
+          <ul>
+            <li>Variáveis</li>
+            <li>Condicionais</li>
+            <li>Loops e funções</li>
+          </ul>
+        </div>
+
+        <div class="module">
+          <div class="module-number">MÓDULO 05</div>
+          <h3>Sensores</h3>
+          <ul>
+            <li>Ultrassônico</li>
+            <li>Luz</li>
+            <li>Temperatura</li>
+          </ul>
+        </div>
+
+        <div class="module">
+          <div class="module-number">MÓDULO 06</div>
+          <h3>Motores</h3>
+          <ul>
+            <li>Motores DC</li>
+            <li>Servomotores</li>
+            <li>Motores de passo</li>
+          </ul>
+        </div>
+
+        <div class="module">
+          <div class="module-number">MÓDULO 07</div>
+          <h3>Controle de Motores</h3>
+          <ul>
+            <li>Ponte H</li>
+            <li>Velocidade</li>
+            <li>Direção</li>
+          </ul>
+        </div>
+
+        <div class="module">
+          <div class="module-number">MÓDULO 08</div>
+          <h3>Robô Seguidor de Linha</h3>
+          <ul>
+            <li>Montagem</li>
+            <li>Sensores infravermelhos</li>
+            <li>Programação</li>
+          </ul>
+        </div>
+
+        <div class="module">
+          <div class="module-number">MÓDULO 09</div>
+          <h3>Desviador de Obstáculos</h3>
+          <ul>
+            <li>Sensor ultrassônico</li>
+            <li>Navegação</li>
+            <li>Projeto completo</li>
+          </ul>
+        </div>
+
+        <div class="module">
+          <div class="module-number">MÓDULO 10</div>
+          <h3>Bluetooth</h3>
+          <ul>
+            <li>Comunicação sem fio</li>
+            <li>Controle pelo celular</li>
+            <li>Robô Bluetooth</li>
+          </ul>
+        </div>
+
+        <div class="module">
+          <div class="module-number">MÓDULO 11</div>
+          <h3>Automação</h3>
+          <ul>
+            <li>Relés</li>
+            <li>Atuadores</li>
+            <li>Automação residencial</li>
+          </ul>
+        </div>
+
+        <div class="module">
+          <div class="module-number">MÓDULO 12</div>
+          <h3>Internet das Coisas</h3>
+          <ul>
+            <li>Conceito de IoT</li>
+            <li>ESP32</li>
+            <li>Controle remoto</li>
+          </ul>
+        </div>
+
+        <div class="module">
+          <div class="module-number">MÓDULO 13</div>
+          <h3>IA e Robótica</h3>
+          <ul>
+            <li>IA aplicada</li>
+            <li>Visão computacional</li>
+            <li>Robôs autônomos</li>
+          </ul>
+        </div>
+
+        <div class="module">
+          <div class="module-number">MÓDULO 14</div>
+          <h3>Projetos Avançados</h3>
+          <ul>
+            <li>Braço robótico</li>
+            <li>Garra robótica</li>
+            <li>Sistemas automatizados</li>
+          </ul>
+        </div>
+
+        <div class="module">
+          <div class="module-number">MÓDULO 15</div>
+          <h3>Projeto Final</h3>
+          <ul>
+            <li>Planejamento</li>
+            <li>Montagem</li>
+            <li>Programação e testes</li>
+          </ul>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- PROJETOS -->
+
+  <section id="projetos">
+    <div class="container">
+
+      <div class="section-title">
+        <h2>Projetos práticos</h2>
+        <p>Coloque os conhecimentos em prática.</p>
+      </div>
+
+      <div class="projects">
+
+        <div class="project">
+          <div class="icon">🤖</div>
+          <h3>Robô Seguidor de Linha</h3>
+          <p>
+            Aprenda a utilizar sensores para criar um robô
+            capaz de seguir uma trajetória.
+          </p>
+        </div>
+
+        <div class="project">
+          <div class="icon">🚗</div>
+          <h3>Robô Autônomo</h3>
+          <p>
+            Desenvolva um robô que identifica obstáculos
+            e toma decisões básicas de navegação.
+          </p>
+        </div>
+
+        <div class="project">
+          <div class="icon">🦾</div>
+          <h3>Braço Robótico</h3>
+          <p>
+            Estude servomotores, controle e movimentos
+            para construir um projeto de braço robótico.
+          </p>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- PLANOS -->
+
+  <section id="planos">
+    <div class="container">
+
+      <div class="section-title">
+        <h2>Escolha seu plano</h2>
+        <p>Comece agora sua jornada na robótica.</p>
+      </div>
+
+      <div class="pricing">
+
+        <!-- BÁSICO -->
+
+        <div class="price-card">
+          <h3>Básico</h3>
+
+          <div class="price">
+            R$ 49,90
+          </div>
+
+          <p>Para começar a estudar.</p>
+
+          <ul>
+            <li>15 módulos</li>
+            <li>45 aulas</li>
+            <li>Material de estudo</li>
+            <li>Exercícios</li>
+          </ul>
+
+          <a
+            class="btn btn-primary buy"
+            href="https://mpago.la/1L1ScDZ"
+            target="_blank"
+            rel="noopener noreferrer">
+            Comprar agora
+          </a>
+        </div>
+
+        <!-- PROFISSIONAL -->
+
+        <div class="price-card featured">
+
+          <div class="popular">
+            MAIS ESCOLHIDO
+          </div>
+
+          <h3>Profissional</h3>
+
+          <div class="price">
+            R$ 99,90
+          </div>
+
+          <p>Para quem quer ir além.</p>
+
+          <ul>
+            <li>15 módulos</li>
+            <li>45 aulas</li>
+            <li>Apostilas</li>
+            <li>Exercícios</li>
+            <li>Códigos dos projetos</li>
+            <li>Projetos práticos</li>
+            <li>Certificado</li>
+          </ul>
+
+          <a
+            class="btn btn-primary buy"
+            href="https://mpago.la/21iYxwG"
+            target="_blank"
+            rel="noopener noreferrer">
+            Comprar agora
+          </a>
+        </div>
+
+        <!-- PREMIUM -->
+
+        <div class="price-card">
+
+          <h3>Premium</h3>
+
+          <div class="price">
+            R$ 197,00
+          </div>
+
+          <p>Experiência completa.</p>
+
+          <ul>
+            <li>Curso completo</li>
+            <li>15 módulos</li>
+            <li>45 aulas</li>
+            <li>Todos os materiais</li>
+            <li>Códigos dos projetos</li>
+            <li>Projetos avançados</li>
+            <li>Materiais extras</li>
+            <li>Certificado</li>
+          </ul>
+
+          <a
+            class="btn btn-primary buy"
+            href="https://mpago.la/2yFcMn2"
+            target="_blank"
+            rel="noopener noreferrer">
+            Comprar agora
+          </a>
+
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- FAQ -->
+
+  <section id="faq">
+
+    <div class="container">
+
+      <div class="section-title">
+        <h2>Perguntas frequentes</h2>
+      </div>
+
+      <div class="faq">
+
+        <details>
+          <summary>Preciso saber programação?</summary>
+          <p>
+            Não. O curso começa pelos fundamentos e apresenta
+            os conceitos de programação gradualmente.
+          </p>
+        </details>
+
+        <details>
+          <summary>Preciso ter um robô?</summary>
+          <p>
+            Não necessariamente. Você pode estudar a teoria e
+            os códigos antes de adquirir os componentes.
+          </p>
+        </details>
+
+        <details>
+          <summary>O curso possui projetos?</summary>
+          <p>
+            Sim. A formação foi estruturada com projetos
+            progressivos de robótica e automação.
+          </p>
+        </details>
+
+        <details>
+          <summary>Posso acessar pelo celular?</summary>
+          <p>
+            Sim. O site foi desenvolvido para funcionar em
+            celulares, tablets e computadores.
+          </p>
+        </details>
+
+        <details>
+          <summary>Como faço para comprar?</summary>
+          <p>
+            Escolha um dos planos e clique em "Comprar agora".
+            Você será direcionado para o respectivo pagamento.
+          </p>
+        </details>
+
+      </div>
+    </div>
+
+  </section>
+
+  <!-- CTA -->
+
+  <section>
+    <div class="container">
+
+      <div class="cta">
+
+        <h2>Comece hoje na Robótica PRO 🤖</h2>
+
+        <p>
+          Aprenda robótica através de uma trilha organizada
+          e projetos práticos.
+        </p>
+
+        <a href="#planos" class="btn btn-primary">
+          Ver planos e começar
+        </a>
+
+      </div>
+
+    </div>
+  </section>
+
+</main>
+
+<footer>
+  <div class="container">
+    <p>
+      © 2026 Robótica PRO — Curso de Robótica.
+    </p>
+
+    <p>
+      Conteúdo educacional. Os resultados de aprendizagem
+      dependem da dedicação e prática de cada aluno.
+    </p>
+  </div>
+</footer>
+
+</body>
+</html>
